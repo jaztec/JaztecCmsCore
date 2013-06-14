@@ -15,4 +15,3 @@ inside the JaztecCms.
 ## Dependancies
 
 - zendframework/ZF2
-- jaztec/JaztecAcl
