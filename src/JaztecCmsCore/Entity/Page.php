@@ -49,76 +49,90 @@ class Page extends Entity
     /**
      * @return int
      */
-    public function getPageID() {
+    public function getPageID()
+    {
         return $this->pageID;
     }
 
     /**
      * @return \JaztecCmsCore\Entity\PageType
      */
-    public function getPageType() {
+    public function getPageType()
+    {
         return $this->pageType;
     }
 
     /**
-     * @param \JaztecCmsCore\Entity\PageType $pageType
+     * @param  \JaztecCmsCore\Entity\PageType $pageType
      * @return \JaztecCmsCore\Entity\Page
      */
-    public function setPageType(\JaztecCmsCore\Entity\PageType $pageType) {
+    public function setPageType(\JaztecCmsCore\Entity\PageType $pageType)
+    {
         $this->pageType = (int) $pageType;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
     /**
-     * @param string $title
+     * @param  string                     $title
      * @return \JaztecCmsCore\Entity\Page
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = (string) $title;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
      *
-     * @param string $description
+     * @param  string                     $description
      * @return \JaztecCmsCore\Entity\Page
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = (string) $description;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 
     /**
-     * @param string $url
+     * @param  string                     $url
      * @return \JaztecCmsCore\Entity\Page
      */
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = (string) $url;
+
         return $this;
     }
 
-    public function serialize() {
+    public function toArray()
+    {
         return array(
             'PageID'                => $this->getPageID(),
             'Title'                 => $this->getTitle(),

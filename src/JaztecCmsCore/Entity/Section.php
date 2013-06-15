@@ -35,43 +35,51 @@ class Section extends Entity
     /**
      * @return int
      */
-    public function getSectionID() {
+    public function getSectionID()
+    {
         return $this->sectionID;
     }
 
     /**
      * @return \JaztecCmsCore\Entity\Page
      */
-    public function getPage() {
+    public function getPage()
+    {
         return $this->page;
     }
 
     /**
-     * @param \JaztecCmsCore\Entity\Page $page
+     * @param  \JaztecCmsCore\Entity\Page    $page
      * @return \JaztecCmsCore\Entity\Section
      */
-    public function setPage(\JaztecCmsCore\Entity\Page $page) {
+    public function setPage(\JaztecCmsCore\Entity\Page $page)
+    {
         $this->page = $page;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getText() {
+    public function getText()
+    {
         return $this->text;
     }
 
     /**
-     * @param string $text
+     * @param  string                        $text
      * @return \JaztecCmsCore\Entity\Section
      */
-    public function setText($text) {
+    public function setText($text)
+    {
         $this->text = (string) $text;
+
         return $this;
     }
 
-    public function serialize() {
+    public function toArray()
+    {
         return array(
             'SectionID'         => $this->getSectionID(),
             'PageID'            => $this->getPage()->getPageID(),

@@ -2,8 +2,10 @@
 
 namespace JaztecCmsCore\Integration\Type;
 
-abstract class Type {
-    public static function instance() {
+abstract class Type
+{
+    public static function instance()
+    {
         return new $this;
     }
 
@@ -12,5 +14,5 @@ abstract class Type {
      *
      * @return \JaztecCmsCore\Entity\Entity
      */
-    public abstract function returnEntity();
+    abstract public function returnEntity();
 }

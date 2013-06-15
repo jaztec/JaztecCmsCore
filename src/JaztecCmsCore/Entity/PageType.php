@@ -27,27 +27,32 @@ class PageType extends Entity
     /**
      * @return int
      */
-    public function getPageTypeID() {
+    public function getPageTypeID()
+    {
         return $this->pageTypeID;
     }
 
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param  string                         $description
      * @return \JaztecCmsCore\Entity\PageType
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = (string) $description;
+
         return $this;
     }
 
-    public function serialize() {
+    public function toArray()
+    {
         return array(
             'PageTypeID'    => $this->getPageTypeID(),
             'Description'   => $this->getDescription(),

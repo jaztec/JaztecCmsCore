@@ -56,91 +56,108 @@ class Article extends Entity
     /**
      * @return int
      */
-    public function getArticleID() {
+    public function getArticleID()
+    {
         return $this->articleID;
     }
 
     /**
      * @return type
      */
-    public function getSection() {
+    public function getSection()
+    {
         return $this->section;
     }
 
     /**
-     * @param \JaztecCmsCore\Entity\Section $section
+     * @param  \JaztecCmsCore\Entity\Section $section
      * @return \JaztecCmsCore\Entity\Article
      */
-    public function setSection(Section $section) {
+    public function setSection(Section $section)
+    {
         $this->section = $section;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
     /**
-     * @param string $title
+     * @param  string                        $title
      * @return \JaztecCmsCore\Entity\Article
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = (string) $title;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param  string                        $description
      * @return \JaztecCmsCore\Entity\Article
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = (string) $description;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getContent() {
+    public function getContent()
+    {
         return $this->content;
     }
 
     /**
-     * @param string $content
+     * @param  string                        $content
      * @return \JaztecCmsCore\Entity\Article
      */
-    public function setContent($content) {
+    public function setContent($content)
+    {
         $this->content = (string) $content;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 
     /**
-     * @param string $url
+     * @param  string                        $url
      * @return \JaztecCmsCore\Entity\Article
      */
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = (string) $url;
+
         return $this;
     }
 
-    public function serialize() {
+    public function toArray()
+    {
         return array(
             'ArticleID'         => $this->getArticleID(),
             'SectionID'         => $this->getSection()->getSectionID(),

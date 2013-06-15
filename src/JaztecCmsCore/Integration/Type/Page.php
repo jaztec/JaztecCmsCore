@@ -2,8 +2,9 @@
 
 namespace JaztecCmsCore\Integration\Type;
 
-class Page extends Type {
-     public function returnEntity() {
-        
+class Page extends Type
+{
+     public function returnEntity()
+     {
     }
 }
