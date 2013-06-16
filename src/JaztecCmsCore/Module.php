@@ -6,11 +6,13 @@ use Zend\ModuleManager\ModuleManager;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 
 class Module implements
     AutoloaderProviderInterface,
     ConfigProviderInterface,
-    ServiceProviderInterface
+    ServiceProviderInterface,
+    Zend\ModuleManager\Feature\ViewHelperProviderInterface
 {
 
     public function init(ModuleManager $moduleManager)
@@ -48,4 +50,10 @@ class Module implements
         return include __DIR__ . '/../../config/service.config.php';
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getViewHelperConfig() {
+        return include __DIR__ . '/../../config/view_helper.config.php';
+    }
 }
