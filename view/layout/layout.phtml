@@ -1,8 +1,8 @@
 <?php echo $this->doctype(); ?>
 
-<html ng-app="jaztecCms" lang="nl">
+<html ng-app="jaztecCms" ng-controller="PageController" lang="nl">
   <head>
-      <title>{{page.title}}</title>
+      <title ng-bind="page.title"></title>
       <meta name="description" content="{{page.description}}">
       <?php echo $this->angularJsApp() ?>
       <?php echo $this->cms()->meta(); ?>
