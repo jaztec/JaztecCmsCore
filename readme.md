@@ -20,3 +20,6 @@ used modules all based on one ZF2 based application.
 ## Dependencies
 
 - zendframework/ZF2
+- doctrine/doctrine-orm-module
+- doctrine/doctrine-module
+- rwoverdijk/assetmanager
