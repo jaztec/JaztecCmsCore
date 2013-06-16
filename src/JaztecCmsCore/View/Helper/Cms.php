@@ -35,7 +35,7 @@ class Cms extends AbstractHelper
     public function title()
     {
         // Check if the title is set in the configuration.
-        $title = isset($config['jaztec-cms-core']['title']) ?: 'Jaztec CMS Default';
+        $title = isset($config['jaztec_cms_core']['title']) ?: 'Jaztec CMS Default';
 
         return $this->headTitle->__invoke($title);
     }

@@ -37,4 +37,9 @@ class AngularJsApp extends AbstractHelper
         $this->headScript = $script;
         $this->config = $config;
     }
+
+    public function __invoke()
+    {
+        
+    }
 }
