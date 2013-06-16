@@ -42,4 +42,12 @@ class AngularJsApp extends AbstractHelper
     {
         
     }
+
+    /**
+     * Function will add all the required scripts to the HeadScript helper;
+     */
+    public function includeScripts()
+    {
+
+    }
 }

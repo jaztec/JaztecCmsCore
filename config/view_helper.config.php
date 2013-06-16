@@ -23,7 +23,7 @@ return array(
              */
             $headScript = $pm->get('HeadScript');
 
-            return new AngularJsApp($config, $headLink, $headScript);
+            return new AngularJsApp($config['jaztec_cms_core'], $headLink, $headScript);
         },
         'cms' => function(AbstractPluginManager $pm) {
             /**
@@ -34,8 +34,29 @@ return array(
              * @var $headTitle \Zend\View\Helper\HeadTitle
              */
             $headTitle = $pm->get('HeadTitle');
+            /**
+             * @var $headTitle \Zend\View\Helper\HeadTitle
+             */
+            $headLink = $pm->get('HeadLink');
+            /**
+             * @var $headTitle \Zend\View\Helper\HeadTitle
+             */
+            $headStyle = $pm->get('HeadStyle');
+            /**
+             * @var $headTitle \Zend\View\Helper\HeadTitle
+             */
+            $headScript = $pm->get('HeadScript');
+            /**
+             * @var $headTitle \Zend\View\Helper\HeadTitle
+             */
+            $headMeta = $pm->get('HeadMeta');
+            /**
+             * @var $basePath \Zend\View\Helper\BasePath
+             */
+            $basePath = $pm->get('BasePath');
 
-            return new Cms($config, $headTitle);
+            return new Cms($config['jaztec_cms_core'], $headTitle, $headLink, 
+                $headStyle, $headScript, $headMeta, $basePath);
         }
     ),
 );
