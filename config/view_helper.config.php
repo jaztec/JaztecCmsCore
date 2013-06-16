@@ -31,23 +31,19 @@ return array(
              */
             $config = $pm->getServiceLocator()->get('Config');
             /**
-             * @var $headTitle \Zend\View\Helper\HeadTitle
-             */
-            $headTitle = $pm->get('HeadTitle');
-            /**
-             * @var $headTitle \Zend\View\Helper\HeadTitle
+             * @var $headLink \Zend\View\Helper\HeadLink
              */
             $headLink = $pm->get('HeadLink');
             /**
-             * @var $headTitle \Zend\View\Helper\HeadTitle
+             * @var $headStyle \Zend\View\Helper\HeadStyle
              */
             $headStyle = $pm->get('HeadStyle');
             /**
-             * @var $headTitle \Zend\View\Helper\HeadTitle
+             * @var $headScript \Zend\View\Helper\HeadScript
              */
             $headScript = $pm->get('HeadScript');
             /**
-             * @var $headTitle \Zend\View\Helper\HeadTitle
+             * @var $headMeta \Zend\View\Helper\HeadMeta
              */
             $headMeta = $pm->get('HeadMeta');
             /**
@@ -55,8 +51,8 @@ return array(
              */
             $basePath = $pm->get('BasePath');
 
-            return new Cms($config['jaztec_cms_core'], $headTitle, $headLink, 
-                $headStyle, $headScript, $headMeta, $basePath);
+            return new Cms($config['jaztec_cms_core'], $headLink, $headStyle,
+                $headScript, $headMeta, $basePath);
         }
     ),
 );

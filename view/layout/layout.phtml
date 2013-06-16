@@ -2,10 +2,10 @@
 
 <html ng-app="jaztecCms" lang="nl">
   <head>
-      <meta charset="utf-8">
+      <title>{{page.title}}</title>
+      <meta name="description" content="{{page.description}}">
       <?php echo $this->angularJsApp() ?>
       <?php echo $this->cms()->meta(); ?>
-      <?php echo $this->cms()->title(); ?>
       <?php echo $this->cms()->link(); ?>
       <?php echo $this->cms()->script();  ?>
   </head>

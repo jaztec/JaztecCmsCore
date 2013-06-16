@@ -10,17 +10,16 @@ use Zend\View\Helper\HeadScript;
 use Zend\View\Helper\HeadStyle;
 use Zend\View\Helper\BasePath;
 
+/**
+ * View helper for the CMS application. It will load all needed library's
+ * into the application.
+ */
 class Cms extends AbstractHelper
 {
     /**
      * @var $config array
      */
     protected $config;
-
-    /**
-     * @var $headTitle \Zend\View\Helper\HeadTitle
-     */
-    protected $headTitle;
 
     /**
      * @var $headMeta \Zend\View\Helper\HeadMeta
@@ -51,37 +50,21 @@ class Cms extends AbstractHelper
 
     /**
      * @param array $config
-     * @param \Zend\View\Helper\HeadTitle $headTitle
      * @param \Zend\View\Helper\HeadLink $headLink
      * @param \Zend\View\Helper\HeadStyle $headStyle
      * @param \Zend\View\Helper\HeadScript $headScript
      * @param \Zend\View\Helper\HeadMeta $headMeta
      * @param \Zend\View\Helper\BasePath $basePath
      */
-    public function __construct(array $config, HeadTitle $headTitle, HeadLink $headLink,
+    public function __construct(array $config, HeadLink $headLink,
         HeadStyle $headStyle, HeadScript $headScript, HeadMeta $headMeta, BasePath $basePath)
     {
         $this->config = $config;
-        $this->headTitle = $headTitle;
         $this->headLink = $headLink;
         $this->headMeta = $headMeta;
         $this->headScript = $headScript;
         $this->headStyle = $headStyle;
         $this->basePath = $basePath;
-    }
-
-    /**
-     * Returns an instance of the HeadTitle with the title defined in the
-     * configuration.
-     *
-     * @return \Zend\View\Helper\HeadTitle
-     */
-    public function title()
-    {
-        // Check if the title is set in the configuration.
-        $title = isset($this->config['title']) ? $this->config['title'] : 'Jaztec CMS Default';
-
-        return $this->headTitle->__invoke($title);
     }
 
     /**
@@ -92,6 +75,7 @@ class Cms extends AbstractHelper
     public function meta()
     {
         $this->headMeta->appendName('viewport', 'width=device-width, initial-scale=1.0');
+        $this->headMeta->setCharset('utf-8');
 
         return $this->headMeta->__invoke();
     }

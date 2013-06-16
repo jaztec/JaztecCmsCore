@@ -24,6 +24,13 @@ return array(
     ),
 
     /**
+     * Define JaztecCmsCore config entry.
+     */
+    'jaztec_cms_core' => array(
+        // Finetune the application with module configurations.
+    ),
+
+    /**
      * Setup routes.
      */
     'router' => array(
