@@ -12,7 +12,7 @@ class Module implements
     AutoloaderProviderInterface,
     ConfigProviderInterface,
     ServiceProviderInterface,
-    Zend\ModuleManager\Feature\ViewHelperProviderInterface
+    ViewHelperProviderInterface
 {
 
     public function init(ModuleManager $moduleManager)

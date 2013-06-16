@@ -1,0 +1,17 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle($this->translate('Jaztec CMS Default Layout'))->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    <!-- Stylesheets -->
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                                ->prependStylesheet($this->basePath() . '/css/icons.css'); ?>
+    <!-- Scripts -->
+     <?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))  ?>
+  </head>
+  <body>
+      <?php echo $this->content; ?>
+  </body>
+</html>
