@@ -97,6 +97,10 @@ class Cms extends AbstractHelper
      */
     public function link()
     {
+        $path = $this->basePath->__invoke();
+        $this->headLink->prependStylesheet($path . '/css/bootstrap-responsive.min.css');
+        $this->headLink->prependStylesheet($path . '/css/bootstrap.min.css');
+
         return $this->headLink->__invoke(array('rel' => 'shortcut icon', 
             'type' => 'image/vnd.microsoft.icon',
             'href' => $this->basePath->__invoke() . '/images/favicon.ico'));
@@ -110,7 +114,10 @@ class Cms extends AbstractHelper
      */
     public function script()
     {
-        $this->headScript->appendFile($this->basePath->__invoke() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',));
+        $path = $this->basePath->__invoke();
+        $this->headScript->appendFile($path . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',));
+        $this->headScript->appendFile('http://code.jquery.com/jquery-latest.min.js');
+        $this->headScript->appendFile($path . '/js/bootstrap.min.js', 'text/javascript');
 
         return $this->headScript->__invoke();
     }

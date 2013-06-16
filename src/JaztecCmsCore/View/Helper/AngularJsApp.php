@@ -40,7 +40,7 @@ class AngularJsApp extends AbstractHelper
 
     public function __invoke()
     {
-        
+        $this->includeScripts();
     }
 
     /**
@@ -48,6 +48,6 @@ class AngularJsApp extends AbstractHelper
      */
     public function includeScripts()
     {
-
+        $this->headScript->prependFile('http://code.angularjs.org/1.1.0/angular.js');
     }
 }
