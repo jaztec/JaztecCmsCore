@@ -17,6 +17,6 @@ used modules all based on one ZF2 based application.
 - Sections
 - Articles
 
-## Dependancies
+## Dependencies
 
 - zendframework/ZF2
