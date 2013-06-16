@@ -22,6 +22,11 @@ class AngularJsApp extends AbstractHelper
     protected $headLink;
 
     /**
+     * @var $basePath string
+     */
+    protected $basePath;
+
+    /**
      * @var array
      */
     protected $config;
@@ -30,24 +35,35 @@ class AngularJsApp extends AbstractHelper
      * @param array $config
      * @param \Zend\View\Helper\HeadLink $link
      * @param \Zend\View\Helper\HeadScript $script
+     * @param string $path
      */
-    public function __construct(array $config, HeadLink $link, HeadScript $script)
+    public function __construct(array $config, HeadLink $link, HeadScript $script, $path)
     {
         $this->headLink = $link;
         $this->headScript = $script;
         $this->config = $config;
+        $this->basePath = (string) $path;
     }
 
+    /**
+     * Includes the AngularJS app into the views.
+     */
     public function __invoke()
     {
-        $this->includeScripts();
+        $this->includeMainScripts();
     }
 
     /**
      * Function will add all the required scripts to the HeadScript helper;
      */
-    public function includeScripts()
+    public function includeMainScripts()
     {
-        $this->headScript->prependFile('http://code.angularjs.org/1.1.0/angular.js');
+        $this->headScript->appendFile('http://code.angularjs.org/1.1.0/angular.js');
+        $this->headScript->appendFile($this->basePath . '/cms/js/app.js');
+        $this->headScript->appendFile($this->basePath . '/cms/js/controllers.js');
+        $this->headScript->appendFile($this->basePath . '/cms/js/filters.js');
+        $this->headScript->appendFile($this->basePath . '/cms/js/directives.js');
+        $this->headScript->appendFile($this->basePath . '/cms/js/services.js');
+        $this->headScript->appendFile('http://code.angularjs.org/1.1.0/angular-resource.min.js');
     }
 }

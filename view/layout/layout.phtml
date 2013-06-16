@@ -1,9 +1,9 @@
 <?php echo $this->doctype(); ?>
 
-<html lang="nl">
+<html ng-app="jaztecCms" lang="nl">
   <head>
       <meta charset="utf-8">
-      <?php $this->angularJsApp() ?>
+      <?php echo $this->angularJsApp() ?>
       <?php echo $this->cms()->meta(); ?>
       <?php echo $this->cms()->title(); ?>
       <?php echo $this->cms()->link(); ?>

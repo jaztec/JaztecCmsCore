@@ -51,6 +51,12 @@ class Cms extends AbstractHelper
 
     /**
      * @param array $config
+     * @param \Zend\View\Helper\HeadTitle $headTitle
+     * @param \Zend\View\Helper\HeadLink $headLink
+     * @param \Zend\View\Helper\HeadStyle $headStyle
+     * @param \Zend\View\Helper\HeadScript $headScript
+     * @param \Zend\View\Helper\HeadMeta $headMeta
+     * @param \Zend\View\Helper\BasePath $basePath
      */
     public function __construct(array $config, HeadTitle $headTitle, HeadLink $headLink,
         HeadStyle $headStyle, HeadScript $headScript, HeadMeta $headMeta, BasePath $basePath)
@@ -108,7 +114,7 @@ class Cms extends AbstractHelper
 
     /**
      * Returns an instance of the script helper.
-     * You should run the AngularJsApp helper first so the app is setup.
+     * You should run the AngularJsApp helper first so the app is set up.
      *
      * @return \Zend\View\Helper\Script
      */
