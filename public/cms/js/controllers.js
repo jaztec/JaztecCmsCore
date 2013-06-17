@@ -1,9 +1,9 @@
 'use strict';
 
-function PageController($scope)
+function PageCtrl($scope, $http, $route, $routeParams, $compile, Page)
 {
-    // Temprorary statuc page.
-    $scope.page = {};
-    $scope.page.title = 'Jaztec CMS';
-    $scope.page.description = 'Temporary static page for the JaztecCMS';
+    var url = $routeParams.route.split('/')[0];
+    console.log(url);
+    $scope.page = Page.get({url: url});
+    
 }
