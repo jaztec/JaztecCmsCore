@@ -4,6 +4,7 @@ namespace JaztecCmsCore\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
+use JaztecCmsCore\Entity\Page;
 
 /**
  * Application entry point.
@@ -31,9 +32,12 @@ class ApiController extends AbstractActionController
         /** $var $page \JaztecCmsCore\Entity\Page */
         $page = $pm->getByUrl($url);
 
-//        return new JsonModel(array(
-//            'page' => $page
-//        ));
-        return new JsonModel($page->toArray());
+        if ($page instanceof Page) {
+            return new JsonModel($page->toArray());
+        } else {
+            return new JsonModel(array(
+                'success' => false
+            ));
+        }
     }
 }
