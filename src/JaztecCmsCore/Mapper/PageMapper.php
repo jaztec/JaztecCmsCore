@@ -20,7 +20,7 @@ class PageMapper extends AbstractDoctrineMapper
         }
         /** @var $page \JaztecCmsCore\Entity\Page */
         $page = $this->getEntityManager()->getRepository('JaztecCmsCore\Entity\Page')->findBy(array('url' => $url));
-        var_dump(get_class($page));
+
         return $page;
     }
 }
