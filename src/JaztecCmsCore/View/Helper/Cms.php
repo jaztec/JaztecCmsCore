@@ -105,9 +105,9 @@ class Cms extends AbstractHelper
     public function script()
     {
         $path = $this->basePath->__invoke();
-        $this->headScript->appendFile($path . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',));
+        $this->headScript->prependFile($path . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',));
+        $this->headScript->prependFile($path . '/js/bootstrap.min.js', 'text/javascript');
         $this->headScript->prependFile('http://code.jquery.com/jquery-latest.min.js');
-        $this->headScript->appendFile($path . '/js/bootstrap.min.js', 'text/javascript');
 
         return $this->headScript->__invoke();
     }

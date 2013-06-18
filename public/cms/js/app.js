@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('jaztecCms', [
+var jaztecCms = angular.module('jaztecCms', [
     'jaztecCmsPageService'
 ]).config(['$routeProvider', function($routeProvider){
     $routeProvider.

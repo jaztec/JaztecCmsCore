@@ -1,6 +1,6 @@
 'use strict';
 
-function PageCtrl($scope, $http, $route, $routeParams, $compile, Page)
+function PageCtrl($scope, $http, $route, $routeParams, $compile, $rootScope, Page)
 {
     var url;
     if (undefined != $routeParams.route) {
@@ -14,5 +14,12 @@ function PageCtrl($scope, $http, $route, $routeParams, $compile, Page)
         $http.get($route.current.templateUrl).then(function(msg){
             $('#views').html($compile(msg.data)($scope));
         });
+        // Set the main app's page variabel.
+        $rootScope.page = $scope.page;
     });
+}
+
+function SectionCtrl($scope)
+{
+    console.log($scope.page);
 }

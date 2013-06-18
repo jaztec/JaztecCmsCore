@@ -28,6 +28,14 @@ class Section extends Entity
     protected $page;
 
     /**
+     * @ORM\OneToOne(targetEntity="SectionType")
+     * @ORM\JoinColumn(name="sectionTypeID", referencedColumnName="sectionTypeID")
+     *
+     * @var \JaztecCmsCore\Entity\SectionType
+     */
+    protected $sectionType;
+
+    /**
      * @ORM\Column(type="string")
      *
      * @var string
@@ -62,6 +70,23 @@ class Section extends Entity
     }
 
     /**
+     * @return \JaztecCmsCore\Entity\SectionType
+     */
+    public function getSectionType() {
+        return $this->sectionType;
+    }
+
+    /**
+     * @param \JaztecCmsCore\Entity\SectionType $sectionType
+     * @return \JaztecCmsCore\Entity\Section
+     */
+    public function setSectionType(SectionType $sectionType) {
+        $this->sectionType = $sectionType;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getText()
@@ -83,10 +108,12 @@ class Section extends Entity
     public function toArray()
     {
         return array(
-            'SectionID'         => $this->getSectionID(),
-            'PageID'            => $this->getPage()->getPageID(),
-            'PageTitle'         => $this->getPage()->getTitle(),
-            'Text'              => $this->getText(),
+            'SectionID'             => $this->getSectionID(),
+            'PageID'                => $this->getPage()->getPageID(),
+            'PageTitle'             => $this->getPage()->getTitle(),
+            'SectionTypeID'         => $this->getSectionType()->getSectionTypeID(),
+            'SectionDescription'    => $this->getSectionType()->getDescription(),
+            'Text'                  => $this->getText(),
         );
     }
 }
