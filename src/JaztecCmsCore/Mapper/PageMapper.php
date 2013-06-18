@@ -4,6 +4,8 @@ namespace JaztecCmsCore\Mapper;
 
 use JaztecBase\Mapper\AbstractDoctrineMapper;
 
+use JaztecCmsCore\Entity\Page;
+
 class PageMapper extends AbstractDoctrineMapper
 {
     /**
@@ -25,4 +27,5 @@ class PageMapper extends AbstractDoctrineMapper
 
         return $page;
     }
+
 }
