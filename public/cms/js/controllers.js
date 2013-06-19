@@ -8,7 +8,14 @@ function PageCtrl($scope, $http, $route, $routeParams, $compile, $rootScope, Pag
     } else {
         url = 'home'
     }
+    // Guards
+    if (url == '' || url == undefined) {
+        return false;
+    }
     $scope.page = Page.get({url: url}, function(page){
+        if (page.PageTypeDescription == undefined) {
+            return false;
+        }
         $route.current.templateUrl = '/cms/partials/pages/' + page.PageTypeDescription.toLowerCase() + '.html';
 
         $http.get($route.current.templateUrl).then(function(msg){
@@ -27,7 +34,6 @@ function SectionCtrl($scope)
             $scope.section = v;
         }
     });
-    console.log($scope.section);
 }
 
 function ArticleCtrl($scope)
