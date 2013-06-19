@@ -33,12 +33,21 @@ class ApiController extends AbstractActionController
         $page = $pm->getByUrl($url);
 
         if ($page instanceof Page) {
-            /** @var $pm \JaztecCmsCore\Mapper\SectionMapper */
+            /** @var $sm \JaztecCmsCore\Mapper\SectionMapper */
             $sm = $this->getServiceLocator()->get('jazteccmscore_sectionmapper');
+            /** @var $am \JaztecCmsCore\Mapper\ArticleMapper */
+            $am = $this->getServiceLocator()->get('jazteccmscore_articlemapper');
             /** @var array $pageArray */
             $pageArray = $page->toArray();
             // Add the sections owned by this page.
-            $pageArray['sections'] = $sm->getByPage($page, \JaztecBase\Mapper\AbstractDoctrineMapper::TYPE_SERIALIZEDARRAY);
+            $sections = $sm->getByPage($page);
+            // And get the articles inside the sections.
+            foreach ($sections as $section) {
+                $articles = $am->getBySection($section, \Startup\Mapper\AbstractDoctrineMapper::TYPE_SERIALIZEDARRAY);
+                $sectionArray = $section->toArray();
+                $sectionArray['articles'] = $articles;
+                $pageArray['sections'][] = $sectionArray;
+            }
             return new JsonModel($pageArray);
         } else {
             return new JsonModel(array(

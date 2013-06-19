@@ -21,5 +21,23 @@ function PageCtrl($scope, $http, $route, $routeParams, $compile, $rootScope, Pag
 
 function SectionCtrl($scope)
 {
-    console.log($scope.page);
+    // We want the current section to be in the scope.
+    $.each($scope.page.sections, function(k,v){
+        if (v['SectionID'] == $scope.sectionId) {
+            $scope.section = v;
+        }
+    });
+    console.log($scope.section);
+}
+
+function ArticleCtrl($scope)
+{
+    
+}
+
+// Helper function
+function findInArray(arr, field, value)
+{
+//    var obj;
+
 }

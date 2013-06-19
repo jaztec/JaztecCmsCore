@@ -1,3 +1,4 @@
 <div ng-controller="SectionCtrl">
-    <h1>Dit is de Jumbotron!!!</h1>
+    <p ng-bind-html-unsafe="section.Text"></p>
+    <div ng-repeat="article in section.articles" article-placeholder="{{article.ArticleTemplateDescription}}"></div>
 </div>

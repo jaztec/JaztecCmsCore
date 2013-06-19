@@ -58,5 +58,6 @@ class AngularJsApp extends AbstractHelper
         $this->headScript->appendFile('/cms/js/directives.js');
         $this->headScript->appendFile('/cms/js/services.js');
         $this->headScript->appendFile('http://code.angularjs.org/1.1.0/angular-resource.min.js');
+        $this->headScript->appendFile('http://code.angularjs.org/1.1.0/angular-sanitize.min.js');
     }
 }
