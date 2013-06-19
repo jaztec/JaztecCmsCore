@@ -20,14 +20,6 @@ class Article extends Entity
     protected $articleID;
 
     /**
-     * @ORM\OneToOne(targetEntity="Section")
-     * @ORM\JoinColumn(name="sectionID", referencedColumnName="sectionID")
-     *
-     * @var \JaztecCmsCore\Entity\Section
-     */
-    protected $section;
-
-    /**
      * @ORM\OneToOne(targetEntity="ArticleTemplate")
      * @ORM\JoinColumn(name="articleTemplateID", referencedColumnName="articleTemplateID")
      *
@@ -187,7 +179,6 @@ class Article extends Entity
     {
         return array(
             'ArticleID'                     => $this->getArticleID(),
-            'SectionID'                     => $this->getSection()->getSectionID(),
             'ArticleTemplateID'             => $this->getArticleTemplate()->getArticleTemplateID(),
             'ArticleTemplateDescription'    => $this->getArticleTemplate()->getDescription(),
             'Title'                         => $this->getTitle(),
