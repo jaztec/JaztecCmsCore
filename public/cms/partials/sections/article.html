@@ -1,4 +1,4 @@
 <div ng-controller="SectionCtrl">
-    <p ng-bind-html-unsafe="section.Text"></p>
+    <p ng-bind-html="section.Text"></p>
     <div ng-repeat="article in section.articles" article-placeholder="{{article.ArticleTemplateDescription}}"></div>
 </div>
