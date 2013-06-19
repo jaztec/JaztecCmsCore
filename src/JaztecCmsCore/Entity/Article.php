@@ -26,6 +26,14 @@ class Article extends Entity
     protected $section;
 
     /**
+     * @ORM\OneToOne(targetEntity="ArticleTemplate")
+     * @ORM\JoinColumn(name="articleTemplateID", referencedColumnName="articleTemplateID")
+     *
+     * @var \JaztecCmsCore\Entity\ArticleTemplate
+     */
+    protected $articleTemplate;
+
+    /**
      * @ORM\Column(type="string")
      *
      * @var string
@@ -76,6 +84,23 @@ class Article extends Entity
     public function setSection(Section $section)
     {
         $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * @return \JaztecCmsCore\Entity\ArticleTemplate
+     */
+    public function getArticleTemplate() {
+        return $this->articleTemplate;
+    }
+
+    /**
+     * @param \JaztecCmsCore\Entity\ArticleTemplate $articleTemplate
+     * @return \JaztecCmsCore\Entity\Article
+     */
+    public function setArticleTemplate(\JaztecCmsCore\Entity\ArticleTemplate $articleTemplate) {
+        $this->articleTemplate = $articleTemplate;
 
         return $this;
     }
@@ -159,12 +184,14 @@ class Article extends Entity
     public function toArray()
     {
         return array(
-            'ArticleID'         => $this->getArticleID(),
-            'SectionID'         => $this->getSection()->getSectionID(),
-            'Title'             => $this->getTitle(),
-            'Description'       => $this->getDescription(),
-            'Content'           => $this->getContent(),
-            'Url'               => $this->getUrl(),
+            'ArticleID'                     => $this->getArticleID(),
+            'SectionID'                     => $this->getSection()->getSectionID(),
+            'ArticleTemplateID'             => $this->getArticleTemplate()->getArticleTemplateID(),
+            'ArticleTemplateDescription'    => $this->getArticleTemplate()->getDescription(),
+            'Title'                         => $this->getTitle(),
+            'Description'                   => $this->getDescription(),
+            'Content'                       => $this->getContent(),
+            'Url'                           => $this->getUrl(),
         );
     }
 }
