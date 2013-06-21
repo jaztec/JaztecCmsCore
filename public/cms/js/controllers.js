@@ -40,10 +40,3 @@ function ArticleCtrl($scope)
 {
     
 }
-
-// Helper function
-function findInArray(arr, field, value)
-{
-//    var obj;
-
-}

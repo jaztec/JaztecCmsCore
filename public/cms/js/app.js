@@ -7,4 +7,6 @@ var jaztecCms = angular.module('jaztecCms', [
     $routeProvider.
         when('/:route', {templateUrl: '/cms/partials/cleared.html', controller: 'PageCtrl'}).
         otherwise({redirectTo: '/home'});
+}]).config(['$locationProvider', function($location) {
+    $location.hashPrefix('!');
 }]);
